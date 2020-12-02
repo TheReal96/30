@@ -128,9 +128,9 @@ GameManager.prototype.move = function (direction) {
         // Only one merger per row traversal?
         if (next && next.value === tile.value && !next.mergedFrom || next && next.value == 0 || next && tile.value == 0) {
           
-	        var merged = new Tile(positions.next, tile.value * 2);
-          if(next && next.value == 0) merged.value = tile.value / 2;
-          if(next && tile.value == 0) merged.value = next.value / 2;
+	        var merged = new Tile(positions.next, tile.value + 3);
+          if(next && next.value == 0) merged.value = tile.value - 3;
+          if(next && tile.value == 0) merged.value = next.value - 3;
           merged.mergedFrom = [tile, next];
 
           self.grid.insertTile(merged);
